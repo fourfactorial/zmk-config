@@ -90,7 +90,7 @@
     &mt LSHFT BSPC  &mt LCTRL Z &mt LALT X  &mt LGUI C  &kp V               &kp B           &kp N   &kp M       &kp COMMA   &mt RALT DOT    &mt RCTRL FSLH &mt RSHFT DELETE
                                             &mo FUNC    &lt MEDIA GRAVE     &lt NUMS SPACE  &kp RET &to MAIN  &kp CAPS
                     >;
-        }
+        };
 
         };
 };
