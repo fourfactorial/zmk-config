@@ -17,7 +17,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        MAIN {
+        default_layer {
             display-name = "QWERTY";
 // -----------------------------------------------------------------------------------------
 // |    TAB    |    Q    |   W    |    E     |    R    |    T   ||   Y   |   U    |  I   |   O    |    P    |    \     |
@@ -32,7 +32,7 @@
                                             &lt FUNC    &lt MEDIA GRAVE     &lt NUMS SPACE  &kp RET &to NUMPAD  &kp CAPS
                         >;
                 };
-        NUMBERS {
+        symbols_layer {
             display-name = "Numbers/Symbols";
 // -----------------------------------------------------------------------------------------
 // |  +  |  !  |  @  |  #  |  $  |  %  ||  ^  |  &  |  *  |  (  |  )  |  -  |
@@ -48,7 +48,7 @@
                         >;
                 };
 
-        MEDIA {
+        media_layer {
             display-name = "Media controls";
 // -----------------------------------------------------------------------------------------
 // | AltTab | Volume- | Volume+ |      | Mute |      ||        |      | PgUp |       |   |   |
@@ -64,7 +64,7 @@
                         >;
                 };
         
-        MY_NUMPAD {
+        numpad_layer {
             display-name = "Numpad and function keys";
 // -----------------------------------------------------------------------------------------
 // | AltTab |   | F01 | F02 |   F03   | F04  ||   7   | 8 | 9 | ( | + | - |
@@ -80,7 +80,7 @@
                     >;
             };
         
-        DVORAK {
+        dvorak_layer {
             display-name = "Dvorak layer";
 // -----------------------------------------------------------------------------------------
 // |    TAB    | " | , |    .     |    P    |   Y    ||   F   |   G    |  C   | R | L |    \     |
