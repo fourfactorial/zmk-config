@@ -9,11 +9,6 @@
 #define DVORAK 4
 
 / {
-    macros {
-        glhf: glhf {
-
-        }
-    }
     keymap {
         compatible = "zmk,keymap";
 
