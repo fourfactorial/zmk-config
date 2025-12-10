@@ -100,16 +100,16 @@
             display-name = "Connections";
 // This layer has keys 
 // -----------------------------------------------------------------------------------------
-// | MAIN |  Device 1  |  Device 2  | Device 3  | Device 4 | Device 5 ||   |              |              |   |   |   |
-// |      | Disconn. 1 | Disconn. 2 |  Disc. 3  | Disc. 4  | Disc. 5  ||   | Next profile | Prev profile |   |   |   |
-// |      |  Clear 1   |  Clear 2   |  Clear 3  | Clear 4  | Clear 5  ||   |              |              |   |   |   |
-//                                  |           |          |          ||   |              |              |
+// | MAIN |  Device 1  |  Device 2  |  Device 3  | Device 4 | Device 5 ||   |              |              |   |   |   |
+// |      | Disconn. 1 | Disconn. 2 |  Disc. 3   | Disc. 4  | Disc. 5  ||   | Next profile | Prev profile |   |   |   |
+// |      | Clear this | Clear all  |            |          |          ||   |              |              |   |   |   |
+//                                  | Reset half |          |          ||   |              |  Reset half  |
 // -----------------------------------------------------------------------------------------
             bindings = <
-    &to MAIN    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &bt BT_SEL 0    &none   &none       &none       &none   &none   &none 
-    &none       &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4   &bt BT_DISC 0   &none   &bt BT_NXT  &bt BT_PRV  &none   &none   &none
-    &none       &bt BT_CLR 1    &bt BT_CLR 2    &bt BT_CLR 3    &bt BT_CLR 4    &bt BT_CLR 0    &none   &none       &none       &none   &none   &none
-                                                &none           &none           &none           &none   &none       &none
+    &to MAIN    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &bt BT_SEL 5    &none   &none       &none       &none   &none   &none 
+    &none       &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4   &bt BT_DISC 5   &none   &bt BT_NXT  &bt BT_PRV  &none   &none   &none
+    &none       &bt BT_CLR      &bt BT_CLR_ALL  &none           &none           &none           &none   &none       &none       &none   &none   &none
+                                                &sys_reset      &none           &none           &none   &none       &sys_reset
                 >;
             };
 
