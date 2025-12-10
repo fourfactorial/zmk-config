@@ -89,9 +89,9 @@
 //                     | Num/func | `,Media | ⎵,Nums || ENTER | QWERTY | CAPS |
 // -----------------------------------------------------------------------------------------
             bindings = <
-    &kp TAB         &kp SQT     &kp DOT     &kp COMMA   &kp P               &kp Y           &kp F   &kp G       &kp C       &kp R      &kp L           &kp FSLH
-    &kp ESC         &kp A       &kp O       &kp E       &kp U               &kp I           &kp D   &kp H       &kp T       &kp N      &kp S           &kp BSLH
-    &mt LSHFT BSPC  &mt LCTRL ; &mt LALT Q  &mt LGUI J  &kp K               &kp X           &kp B   &kp M       &kp W       &mt RALT V &mt RCTRL V     &mt RSHFT DELETE
+    &kp TAB         &kp SQT         &kp DOT     &kp COMMA   &kp P               &kp Y           &kp F   &kp G       &kp C       &kp R      &kp L           &kp FSLH
+    &kp ESC         &kp A           &kp O       &kp E       &kp U               &kp I           &kp D   &kp H       &kp T       &kp N      &kp S           &kp BSLH
+    &mt LSHFT BSPC  &mt LCTRL SEMI  &mt LALT Q  &mt LGUI J  &kp K               &kp X           &kp B   &kp M       &kp W       &mt RALT V &mt RCTRL V     &mt RSHFT DELETE
                                             &mo FUNC    &lt MEDIA GRAVE     &lt NUMS SPACE  &kp RET &to MAIN    &mt BSPC CAPS
                 >;
             };
