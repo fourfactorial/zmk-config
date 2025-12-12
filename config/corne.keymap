@@ -3,10 +3,10 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define MAIN   0
-#define NUMS   1
-#define MEDIA  2
-#define FUNC   3
-#define DVORAK 4
+#define DVORAK 1
+#define NUMS   2
+#define MEDIA  3
+#define FUNC   4
 #define BT     5
 
 &mt {
@@ -32,19 +32,36 @@
                                             &mo FUNC    &lt MEDIA GRAVE     &lt NUMS SPACE  &kp RET &to DVORAK  &mt BSPC CAPS
                 >;
             };
+        
+        dvorak_layer {
+            display-name = "Dvorak";
+// -----------------------------------------------------------------------------------------
+// |    TAB    |    "    |   ,    |    .     |    P    |   Y    ||   F   |   G    |  C   |   R    |    L    |    /     |
+// |    ESC    |    A    |   O    |    E     |    U    |   I    ||   D   |   H    |  T   |   N    |    S    |    \     |
+// | SHFT,BSPC | ;,LCTRL | Q,LALT |  J,LGUI  |    K    |   X    ||   B   |   M    |  W   | V,RALT | Z,RCTRL | SHFT,DLT |
+//                                | Num/func | `,Media | ⎵,Nums || ENTER | QWERTY | CAPS |
+// -----------------------------------------------------------------------------------------
+            bindings = <
+    &kp TAB         &kp SQT         &kp DOT     &kp COMMA   &kp P               &kp Y           &kp F   &kp G       &kp C       &kp R      &kp L           &kp FSLH
+    &kp ESC         &kp A           &kp O       &kp E       &kp U               &kp I           &kp D   &kp H       &kp T       &kp N      &kp S           &kp BSLH
+    &mt LSHFT BSPC  &mt LCTRL SEMI  &mt LALT Q  &mt LGUI J  &kp K               &kp X           &kp B   &kp M       &kp W       &mt RALT V &mt RCTRL V     &mt RSHFT DELETE
+                                                &mo FUNC    &lt MEDIA GRAVE     &lt NUMS SPACE  &kp RET &to MAIN    &mt BSPC CAPS
+                >;
+            };
+
         symbols_layer {
             display-name = "Numbers/Symbols";
 // -----------------------------------------------------------------------------------------
-// |  +  |  !  |  @  |  #  |  $  |  %  ||  ^  |  &  |  *  |  (  |  )  |  -  |
-// |  ~  |  <  |  [  |  {  |  (  |  _  ||  |  |  )  |  }  |  ]  |  >  |  \  |
-// |  =  |  1  |  2  |  3  |  4  |  5  ||  6  |  7  |  8  |  9  |  0  |     |
-//                   |     |     |     || ESC |     |     | 
+// |   +   |  !  |  @  |  #  |  $  |  %  ||  ^  |  &  |  *  |  (  |  )  |  -  |
+// |   =   |  <  |  [  |  {  |  (  |  _  ||  |  |  )  |  }  |  ]  |  >  |  \  |
+// | Sh/Bs |  1  |  2  |  3  |  4  |  5  ||  6  |  7  |  8  |  9  |  0  |  `  |
+//                     |     |     |     || ESC |  ,  |  .  | 
 // -----------------------------------------------------------------------------------------
                 bindings = <
-    &kp PLUS    &kp EXCL    &kp AT      &kp HASH        &kp DOLLAR  &kp PRCNT   &kp CARET   &kp AMPS    &kp STAR    &kp LPAR    &kp RPAR    &kp MINUS
-    &kp TILDE   &kp LT      &kp LBKT    &kp LBRC        &kp LPAR    &kp UNDER   &kp PIPE    &kp RPAR    &kp RBRC    &kp RBKT    &kp GT      &kp BSLH
-    &trans      &kp N1      &kp N2      &kp N3          &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &trans
-                                        &kp KP_EQUAL    &none       &none       &kp ESC     &none       &none
+    &kp PLUS        &kp EXCL    &kp AT      &kp HASH        &kp DOLLAR  &kp PRCNT   &kp CARET   &kp AMPS    &kp STAR    &kp LPAR    &kp RPAR    &kp MINUS
+    &kp KP_EQUAL    &kp LT      &kp LBKT    &kp LBRC        &kp LPAR    &kp UNDER   &kp PIPE    &kp RPAR    &kp RBRC    &kp RBKT    &kp GT      &kp BSLH
+    &mt LSHFT BSPC  &kp N1      &kp N2      &kp N3          &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp GRAVE
+                                            &none           &none       &none       &kp ESC     &kp COMMA   &kp DOT
                 >;
             };
 
@@ -53,14 +70,14 @@
 // -----------------------------------------------------------------------------------------
 // | AltTab | Volume- | Volume+ |      | Mute |      ||        |      | PgUp |       |   |   |
 // |        |         |  Pause  | Prev | Next |      ||  Left  | Down |  Up  | Right |   |   |
-// |        | Bright- | Bright+ |      |      |      ||        | PgDn |      |       |   |   |
+// |  Shft  | Bright- | Bright+ |      |      |      ||        | PgDn |      |       |   |   |
 //                              |  BT  |      | MAIN || Dvorak |      |      |
 // -----------------------------------------------------------------------------------------
             bindings = <
-    &kp LA(TAB)   &kp C_VOL_DN    &kp C_VOL_UP    &none       &kp C_MUTE  &none       &none       &none       &kp PGUP    &none       &none   &none   
-    &none           &none           &kp C_PP        &kp C_PREV  &kp C_NEXT  &none       &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &none   &none
-    &kp C_BRI_MIN   &kp C_BRI_DN    &kp C_BRI_UP    &none       &none       &none       &none       &kp PGDN    &none       &none       &none   &none
-                                                    &lt BT      &none       &to MAIN    &to DVORAK  &none       &none
+    &kp LA(TAB) &kp C_VOL_DN    &kp C_VOL_UP    &none       &kp C_MUTE  &none       &none       &none       &kp PGUP    &none       &none   &none   
+    &none       &none           &kp C_PP        &kp C_PREV  &kp C_NEXT  &none       &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &none   &none
+    &kp LSHFT   &kp C_BRI_DN    &kp C_BRI_UP    &none       &none       &none       &none       &kp PGDN    &none       &none       &none   &none
+                                                &lt BT      &none       &to MAIN    &to DVORAK  &none       &none
                 >;
             };
         
@@ -77,22 +94,6 @@
     &kp TAB     &none   &kp F5  &kp F6  &kp F7      &kp F8      &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_RPAR &kp KP_MULTIPLY &kp KP_SLASH
     &kp BSPC    &none   &kp F9  &kp F10 &kp F11     &kp F12     &kp KP_N1   &kp KP_N2   &kp KP_N3   &none       &kp CARET       &kp KP_EQUAL
                                     &none   &kp KP_NLCK &to MAIN    &kp ENTER   &kp KP_DOT  &kp KP_N0
-                >;
-            };
-        
-        dvorak_layer {
-            display-name = "Dvorak";
-// -----------------------------------------------------------------------------------------
-// |    TAB    | " | , |    .     |    P    |   Y    ||   F   |   G    |  C   | R | L |    /     |
-// |    ESC    | A | O |    E     |    U    |   I    ||   D   |   H    |  T   | N | S |    \     |
-// | SHFT,BSPC | ; | Q |    J     |    K    |   X    ||   B   |   M    |  W   | V | Z | SHFT,DLT |
-//                     | Num/func | `,Media | ⎵,Nums || ENTER | QWERTY | CAPS |
-// -----------------------------------------------------------------------------------------
-            bindings = <
-    &kp TAB         &kp SQT         &kp DOT     &kp COMMA   &kp P               &kp Y           &kp F   &kp G       &kp C       &kp R      &kp L           &kp FSLH
-    &kp ESC         &kp A           &kp O       &kp E       &kp U               &kp I           &kp D   &kp H       &kp T       &kp N      &kp S           &kp BSLH
-    &mt LSHFT BSPC  &mt LCTRL SEMI  &mt LALT Q  &mt LGUI J  &kp K               &kp X           &kp B   &kp M       &kp W       &mt RALT V &mt RCTRL V     &mt RSHFT DELETE
-                                            &mo FUNC    &lt MEDIA GRAVE     &lt NUMS SPACE  &kp RET &to MAIN    &mt BSPC CAPS
                 >;
             };
         
